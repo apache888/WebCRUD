@@ -2,4 +2,6 @@
 # IntelliJ project files
 .idea
 *.iml
+.gitignore
 
+target/
