@@ -7,10 +7,11 @@
 <body>
      <h2>Developer editing</h2>
 
-     <form action="../UpdateDeveloper" method="POST">
+     <%--<form action="../UpdateDeveloper" method="POST">--%>
+     <form action="${pageContext.servletContext.contextPath}/UpdateDeveloper" method="POST">
          ID: <input type="text" name="firstName" value="<%= request.getParameter("id")%>">
-         <br/>
-         First Name: <input type="text" name="firstName">
+         <br />
+         First Name: <input type="text" name="firstName"/>
          <br />
          Last Name: <input type="text" name="lastName" />
          <br />
@@ -19,7 +20,7 @@
          Experience: <input type="text" name="experience" />
          <br />
          Salary: <input type="text" name="salary" />
-         <br/>
+         <br />
          <input type="submit" value="Create" />
      </form>
 </body>

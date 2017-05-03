@@ -8,7 +8,7 @@
     <title>Developers Page</title>
 </head>
 <body>
-<br/>
+<br />
 
 <h1>Developers List</h1>
 
@@ -19,7 +19,7 @@
 <%--<% List<Developer> listDevelopers = (List<Developer>) application.getAttribute("listDevelopers");
 %>--%>
 <c:if test="${!empty listDevelopers}">
-    <table class="tg">
+    <table class="tg" >
         <tr>
             <th width="60">ID</th>
             <th width="120">First name</th>
@@ -34,7 +34,7 @@
             <tr>
                 <td>${developer.id}</td>
                 <td><a href="<c:url value="/DeveloperData?id=${developer.id}"/>" target="_self">${developer.firstName}</a></td>
-                <td><a href="developerdata.jsp?id=${developer.id}" target="_self">${developer.lastName}</a></td>
+                <td><a href="${pageContext.servletContext.contextPath}/pages/developerdata.jsp?id=${developer.id}" target="_self">${developer.lastName}</a></td>
                 <td>${developer.specialty}</td>
                 <td>${developer.experience}</td>
                 <td>${developer.salary}</td>
@@ -44,8 +44,9 @@
         </c:forEach>
     </table>
 </c:if>
-<br/>
-<br/>
+<br />
+<br />
+<hr/>
 
 <h2>Add a Developer</h2>
 

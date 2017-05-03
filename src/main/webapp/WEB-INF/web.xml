@@ -54,4 +54,8 @@
         <servlet-name>DeleteDeveloper</servlet-name>
         <url-pattern>/DeleteDeveloper</url-pattern>
     </servlet-mapping>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 </web-app>

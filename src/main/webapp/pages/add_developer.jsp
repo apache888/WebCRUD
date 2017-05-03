@@ -5,9 +5,11 @@
     <title>Developers Page</title>
 </head>
 <body>
-        <h1>Add a Developer</h1> <br/>
+        <h1>Add a Developer</h1>
+        <br />
 
-        <form action="../AddDeveloper" method="POST">
+        <%--<form action="../AddDeveloper" method="POST">--%>
+        <form action="${pageContext.servletContext.contextPath}/AddDeveloper" method="POST">
 
             First Name: <input type="text" name="firstName">
             <br />

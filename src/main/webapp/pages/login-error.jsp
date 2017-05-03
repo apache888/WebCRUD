@@ -12,9 +12,11 @@
     <%--<%@ include file="/index.jsp" %>--%>
 
     <form action="../LoginController" method="post">
-        Name:<input type="text" name="name"><br>
-        Password:<input type="password" name="password"><br>
-        <br/>
+        Name:<input type="text" name="name">
+        <br />
+        Password:<input type="password" name="password">
+        <br />
+        <br />
         <input type="submit" value="login">
     </form>
 </body>

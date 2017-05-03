@@ -4,11 +4,14 @@
     <title>Login Page</title>
 </head>
 <body>
-<h1>CRUD Manager</h1><br/>
+<h1>CRUD Manager</h1>
+<br />
 <form action="LoginController" method="post">
-    Name:<input type="text" name="name"><br>
-    Password:<input type="password" name="password"><br>
-    <br/>
+    Name:<input type="text" name="name">
+    <br />
+    Password:<input type="password" name="password">
+    <br />
+    <br />
     <input type="submit" value="login">
 </form>
 </body>
