@@ -4,7 +4,6 @@ import com.training.dao.DeveloperDao;
 import com.training.dao.DeveloperDaoImpl;
 import com.training.model.Developer;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,8 +22,9 @@ public class DeveloperDataController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Developer developer = developerDao.getById(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("developer", developer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher(request.getServletContext().getContextPath() + "/pages/developerdata.jsp");
-        dispatcher.forward(request, response);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("developerdata.jsp");
+//        dispatcher.forward(request, response);
+        response.sendRedirect(request.getServletContext().getContextPath() + "/pages/developerdata.jsp");
     }
 
     @Override

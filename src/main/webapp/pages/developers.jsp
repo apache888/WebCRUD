@@ -12,11 +12,11 @@
 
 <h1>Developers List</h1>
 
-<%--<%
+<%
     List<Developer> list = new DeveloperDaoImpl().getAll();
     request.setAttribute("listDevelopers",list);
 %>
-<% List<Developer> listDevelopers = (List<Developer>) application.getAttribute("listDevelopers");
+<%--<% List<Developer> listDevelopers = (List<Developer>) application.getAttribute("listDevelopers");
 %>--%>
 <c:if test="${!empty listDevelopers}">
     <table class="tg">
@@ -33,13 +33,13 @@
         <c:forEach items="${listDevelopers}" var="developer">
             <tr>
                 <td>${developer.id}</td>
-                <td><a href="/DeveloperData/id=${developer.id}" target="_self">${developer.firstName}</a></td>
-                <td><a href="developerdata.jsp/id=${developer.id}" target="_self">${developer.lastName}</a></td>
+                <td><a href="<c:url value="/DeveloperData?id=${developer.id}"/>" target="_self">${developer.firstName}</a></td>
+                <td><a href="developerdata.jsp?id=${developer.id}" target="_self">${developer.lastName}</a></td>
                 <td>${developer.specialty}</td>
                 <td>${developer.experience}</td>
                 <td>${developer.salary}</td>
-                <td><a href="<c:url value='UpdateDeveloper/${developer.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='DeleteDeveloper/${developer.id}'/>">Delete</a></td>
+                <td><a href="<c:url value='/UpdateDeveloper?id=${developer.id}'/>">Edit</a></td>
+                <td><a href="<c:url value='/DeleteDeveloper?id=${developer.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

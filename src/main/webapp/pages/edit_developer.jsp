@@ -8,7 +8,8 @@
      <h2>Developer editing</h2>
 
      <form action="../UpdateDeveloper" method="POST">
-         ID: <%= request.getPart("id")%>
+         ID: <input type="text" name="firstName" value="<%= request.getParameter("id")%>">
+         <br/>
          First Name: <input type="text" name="firstName">
          <br />
          Last Name: <input type="text" name="lastName" />
@@ -18,6 +19,7 @@
          Experience: <input type="text" name="experience" />
          <br />
          Salary: <input type="text" name="salary" />
+         <br/>
          <input type="submit" value="Create" />
      </form>
 </body>

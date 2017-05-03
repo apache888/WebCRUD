@@ -29,13 +29,9 @@ public class LoginController extends HttpServlet {
         boolean status=bean.validate();
 
         if(status){
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("pages/mainpage.jsp");
-//            dispatcher.forward(request, response);
             response.sendRedirect("pages/mainpage.jsp");
         }
         else{
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("pages/login-error.jsp");
-//            dispatcher.forward(request, response);
             response.sendRedirect("pages/login-error.jsp");
         }
     }

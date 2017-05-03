@@ -30,7 +30,10 @@ public class DeveloperDaoImpl implements DeveloperDao {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         Developer developer = session.get(Developer.class, id);
-        session.getTransaction().commit();
+        if (developer != null) {
+            session.getTransaction().commit();
+        }
+        session.getTransaction().rollback();
         logger.info("Developer successfully loaded. Details: " + developer);
 
         return developer;
@@ -40,6 +43,7 @@ public class DeveloperDaoImpl implements DeveloperDao {
     public void updateDeveloper(Developer developer) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
+
         session.update(developer);
         session.getTransaction().commit();
         logger.info("Developer successfully updated. Details: " + developer);
