@@ -28,11 +28,14 @@ public class UpdateDeveloperController extends HttpServlet {
         developer.setSalary(Integer.parseInt(request.getParameter("salary")));
 
         developerDao.updateDeveloper(developer);
-        response.sendRedirect(request.getServletContext().getContextPath() + "/pages/developers.jsp");
+        response.sendRedirect("GetAllDevelopers");
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Developer developer = developerDao.getById(Integer.parseInt(request.getParameter("id")));
+        request.setAttribute("developer", developer);
+
+        request.getRequestDispatcher("/pages/edit_developer.jsp").forward(request, response);
     }
 }

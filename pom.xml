@@ -24,9 +24,12 @@
       <scope>provided</scope>
       </dependency>
       <dependency>
-          <groupId>javax.servlet.jsp</groupId>
+          <!--<groupId>javax.servlet.jsp</groupId>
           <artifactId>javax.servlet.jsp-api</artifactId>
-          <version>2.3.1</version>
+          <version>2.3.1</version>-->
+              <groupId>javax.servlet.jsp</groupId>
+              <artifactId>jsp-api</artifactId>
+              <version>2.2</version>
           <scope>provided</scope>
       </dependency>
       <dependency>
@@ -34,6 +37,12 @@
           <artifactId>jstl</artifactId>
           <version>1.2</version>
       </dependency>
+      <dependency>
+          <groupId>javax.el</groupId>
+          <artifactId>javax.el-api</artifactId>
+          <version>3.0.0</version>
+      </dependency>
+
       <dependency>
           <groupId>org.hibernate</groupId>
           <artifactId>hibernate-core</artifactId>
@@ -68,21 +77,24 @@
           <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.6.1</version>
               <configuration>
                   <source>1.8</source>
                   <target>1.8</target>
               </configuration>
           </plugin>
-          <!--<plugin> для того чтобы деплоить без web.xml, усли использовать аннотации
-                        в servlet 3.0-3.1-->
-          <!--<plugin>
+
+        <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-war-plugin</artifactId>
               <version>3.0.0</version>
               <configuration>
-                  <failOnMissingWebXml>false</failOnMissingWebXml>
+                  <outputDirectory>${basedir}/war/</outputDirectory>
+                  <!--<plugin> для того чтобы деплоить без web.xml, если использовать аннотации
+                                          в servlet 3.0-3.1-->
+                  <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
               </configuration>
-          </plugin>-->
+          </plugin>
       </plugins>
   </build>
 </project>

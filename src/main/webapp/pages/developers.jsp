@@ -1,25 +1,30 @@
-<%@ page import="com.training.model.Developer" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.training.dao.DeveloperDaoImpl" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ page errorPage="/error.jsp" %>
+
+<%--<% request.setCharacterEncoding("UTF-8");--%>
+    <%--response.setCharacterEncoding("UTF-8");%>--%>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+
     <title>Developers Page</title>
 </head>
 <body>
+
+<br />
+<h3><a href="<c:url value="/pages/mainpage.jsp"/>" target="_self">Main page</a> </h3>
+<br />
 <br />
 
 <h1>Developers List</h1>
+<br />
+<br />
 
-<%
-    List<Developer> list = new DeveloperDaoImpl().getAll();
-    request.setAttribute("listDevelopers",list);
-%>
-<%--<% List<Developer> listDevelopers = (List<Developer>) application.getAttribute("listDevelopers");
-%>--%>
+
 <c:if test="${!empty listDevelopers}">
-    <table class="tg" >
+    <table>
         <tr>
             <th width="60">ID</th>
             <th width="120">First name</th>
@@ -34,7 +39,7 @@
             <tr>
                 <td>${developer.id}</td>
                 <td><a href="<c:url value="/DeveloperData?id=${developer.id}"/>" target="_self">${developer.firstName}</a></td>
-                <td><a href="${pageContext.servletContext.contextPath}/pages/developerdata.jsp?id=${developer.id}" target="_self">${developer.lastName}</a></td>
+                <td>${developer.lastName}</td>
                 <td>${developer.specialty}</td>
                 <td>${developer.experience}</td>
                 <td>${developer.salary}</td>
@@ -50,7 +55,7 @@
 
 <h2>Add a Developer</h2>
 
-<h2><a href="add_developer.jsp" target="_self">Add new</a></h2>
+<h2><a href="<c:url value="/pages/add_developer.jsp"/>" target="_self">Add new</a></h2>
 
 </body>
 </html>

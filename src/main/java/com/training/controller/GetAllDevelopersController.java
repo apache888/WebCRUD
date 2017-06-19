@@ -2,12 +2,14 @@ package com.training.controller;
 
 import com.training.dao.DeveloperDao;
 import com.training.dao.DeveloperDaoImpl;
+import com.training.model.Developer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created on 01.05.2017
@@ -19,9 +21,10 @@ public class GetAllDevelopersController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        List<Developer> developers = developerDao.getAll();
-        request.getServletContext().setAttribute("listDevelopers", this.developerDao.getAll());
-        response.sendRedirect(request.getServletContext().getContextPath() + "/pages/developers.jsp");
+//        request.setCharacterEncoding("UTF-8");
+        List<Developer> developers = developerDao.getAll();
+        request.setAttribute("listDevelopers", developers);
+        request.getRequestDispatcher("/pages/developers.jsp").forward(request, response);
     }
 
     @Override

@@ -21,7 +21,8 @@ public class LoginBean {
         this.password = password;
     }
     public boolean validate(){
-        if(password.equalsIgnoreCase("admin") && name.equalsIgnoreCase("admin")){
+        if(password.equalsIgnoreCase("admin")
+                && name.equalsIgnoreCase("admin")){
             return true;
         }
         else{

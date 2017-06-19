@@ -29,7 +29,7 @@ public class AddDeveloperController extends HttpServlet {
 
         developerDao.addDeveloper(developer);
 
-        response.sendRedirect(request.getServletContext().getContextPath() + "/pages/developers.jsp");
+        response.sendRedirect("/GetAllDevelopers");
 
     }
 

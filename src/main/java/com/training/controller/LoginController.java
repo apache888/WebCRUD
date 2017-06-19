@@ -17,14 +17,13 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
         String name=request.getParameter("name");
         String password=request.getParameter("password");
 
         LoginBean bean=new LoginBean();
         bean.setName(name);
         bean.setPassword(password);
-        request.setAttribute("bean",bean);
+        request.getSession().setAttribute("loginBean",bean);
 
         boolean status=bean.validate();
 

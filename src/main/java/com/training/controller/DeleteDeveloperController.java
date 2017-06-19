@@ -21,7 +21,7 @@ public class DeleteDeveloperController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         developerDao.deleteDeveloper(Integer.parseInt(request.getParameter("id")));
 
-        response.sendRedirect(request.getServletContext().getContextPath() + "/pages/developers.jsp");
+        response.sendRedirect("GetAllDevelopers");
     }
 
     @Override

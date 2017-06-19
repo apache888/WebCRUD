@@ -22,9 +22,7 @@ public class DeveloperDataController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Developer developer = developerDao.getById(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("developer", developer);
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("developerdata.jsp");
-//        dispatcher.forward(request, response);
-        response.sendRedirect(request.getServletContext().getContextPath() + "/pages/developerdata.jsp");
+        request.getRequestDispatcher("/pages/developerdata.jsp").forward(request, response);
     }
 
     @Override

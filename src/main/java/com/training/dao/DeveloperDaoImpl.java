@@ -32,8 +32,7 @@ public class DeveloperDaoImpl implements DeveloperDao {
         Developer developer = session.get(Developer.class, id);
         if (developer != null) {
             session.getTransaction().commit();
-        }
-        session.getTransaction().rollback();
+        } else session.getTransaction().rollback();
         logger.info("Developer successfully loaded. Details: " + developer);
 
         return developer;
@@ -57,8 +56,7 @@ public class DeveloperDaoImpl implements DeveloperDao {
         if (developer != null) {
             session.delete(developer);
             session.getTransaction().commit();
-        }
-        session.getTransaction().rollback();
+        } else session.getTransaction().rollback();
         logger.info("Developer successfully deleted. Details: " + developer);
     }
 
@@ -70,6 +68,7 @@ public class DeveloperDaoImpl implements DeveloperDao {
         for (Developer developer : list) {
             logger.info("Developer list: " + developer);
         }
+        session.getTransaction().commit();
         return list;
     }
 }

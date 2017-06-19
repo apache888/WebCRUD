@@ -1,9 +1,31 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
 
-<web-app>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
   <display-name>Web CRUD</display-name>
+    
+    <filter>
+        <filter-name>FormEncodingSetterFilter</filter-name>
+        <filter-class>com.training.filter.FormEncodingSetterFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FormEncodingSetterFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--<filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.training.filter.LoginFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+
   <servlet>
       <servlet-name>LoginController</servlet-name>
       <servlet-class>com.training.controller.LoginController</servlet-class>
@@ -58,4 +80,9 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error.jsp</location>
+    </error-page>
 </web-app>
