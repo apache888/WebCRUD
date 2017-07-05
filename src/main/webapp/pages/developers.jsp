@@ -2,8 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ page errorPage="/error.jsp" %>
 
-<%--<% request.setCharacterEncoding("UTF-8");--%>
-    <%--response.setCharacterEncoding("UTF-8");%>--%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -24,7 +22,7 @@
 
 
 <c:if test="${!empty listDevelopers}">
-    <table>
+    <table border="1">
         <tr>
             <th width="60">ID</th>
             <th width="120">First name</th>

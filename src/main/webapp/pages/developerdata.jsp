@@ -13,7 +13,7 @@
 <br />
 <h1>Developer Details</h1>
 
-<table>
+<table border="1">
   <tr>
     <th width="60">ID</th>
     <th width="120">First name</th>
